@@ -10,8 +10,28 @@
 .main {
     background-color: #fff;
     text-align: center;
-    
 }
+/* 
+.intro {
+    text-align: center;
+    width: 65%;
+    margin: 60px auto;
+}
+
+.intro h1 {
+    margin-bottom: 30px;
+} */
+
+#graph {
+    width: 65%;
+    height: 500px;
+    margin: 60px auto;
+}
+
+#graph p {
+    margin: 20px auto;
+}
+
 
 .main__container {
     display: flex;
@@ -94,14 +114,16 @@
     color: #fff;
 }
 
+.dist-type {
+    margin-top: 60px;
+}
+
 .dist-cards {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: left;
-    justify-self: center;
-    margin: 40px 80px;
-    
+    justify-content: center;
+    width: 80%;
+    margin: 30px auto;
 }
 
 .dist-card {
@@ -110,23 +132,37 @@
     background-color: #bc89ff;
     border-radius: 10px;
     margin: 10px 10px;
-    
 }
-
-/*
-.dist-type {
-    align-items: center;
-    justify-self: center;
-    justify-content: center;
-}
-*/
 
 .card-image img {
     margin-top: 10px;
     width: 180px;
+    height: 180px;
     border-radius: 8px;
+}
+
+.card-name {
+    height: 50px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    padding: 10px;
 }
 
 .card-name h1 {
     font-size: 1.1rem;
+}
+
+.dist__links {
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.dist__links:hover {
+    color: #ffffff;
+}
+
+.dist__links:active {
+    color: #ffffff;
 }
