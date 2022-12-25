@@ -1,130 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamma Distribution</title> <!-- CHANGE TITLE FOR EVERY DIST -->
+    <title>Gamma Distribution</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 </head>
 <body>
-    <!-- Navbar Section -->
+    <!-- navbar -->
     <nav class="navbar">
-        <ul class="navbar__menu">
-            <li><a href="/index.html" class="navbar__links">Home</a></li>
-            <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-        </ul>
-        <!-- <div class="navbar__container">
-            <ul class="navbar__menu">
-                <li><a href="/index.html" class="navbar__links">Home</a></li>
-                <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-            </ul>
-        </div> -->
+        <li><a href="index.html" class="navbar__link">Home</a></li>
+        <li><a href="contact.html" class="navbar__link">Contact</a></li>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="main">
-        <h1> The Gamma Distribution </h1>
-        <br>
-        <br>
-        <div class="intro">
-        In probability theory and statistics, the gamma distribution is a two-parameter family of continuous probability distributions. 
-        The exponential distribution, Erlang distribution, and chi-square distribution are special cases of the gamma distribution. 
-        
-        We will use a shape parameter {\displaystyle \alpha =k}{\displaystyle \alpha =k} and an inverse scale parameter λ, also called a rate parameter, where both parameters are positive real numbers. For this example, we use the second parametrization.  
-        *this is all from wikipedia and everything there is latex, just find a way to convert*
-        <br>
-        <br>
-        The gamma distribution's importance is largely due to its relation to exponential and normal distributions. 
+    <div class="margin-top-centralise">
+        <h1 class="dist-name">Gamma Distribution</h1>
+        <div class="dist-description">
+            <p>The Gamma Function serves as one of the components of the Gamma Distribution. It is given by Γ(α)=∫∞0xα−1e−xdx,for α>0. 
+                The Gamma Function is a generalisation of the factorial function, such that Γ(n)=(n−1)!, for positive integers n.</p>
         </div>
-
-        <div id="intro_graph" style="width: 900px; height: 500px; margin: auto;">
-            <br>
-            <h2>The Gamma Function</h2>
-            <br>
-            The Gamma Function serves as one of the components of the Gamma Distribution. It is given by Γ(α)=∫∞0xα−1e−xdx,for α>0. 
-            The Gamma Function is a generalisation of the factorial function, such that Γ(n)=(n−1)!, for positive integers n.
-            <br>
-            <br>
-        </div>
-    
-        <div id="graph" style="width: 900px; height: 500px; margin: 200px auto;">
-            <h2>The Gamma Distribution</h2>
-            <br>
-            Open the pop-up and adjust the sliders for different values of α and λ.
+        <div class="graph" id="intro-graph"></div>
+        <div class="dist-description">
+            <p>
+                Open the pop-up and adjust the sliders for different values of α and λ.
             To find the Cumulative Probability, enter your desired minimum (a) and maximmum (b) values to view the corresponding area under the curve, a value which also represents the probability.
             Note that the graph in red below is the exponential distribution with parameter λ = 1.
-            <br>
-            <br>
+            </p>
         </div>
-
-
+        <div class="graph" id="main-graph"></div>
     </div>
-
-    
-    
-    <script>
-        
-        var eltIntro = document.getElementById('intro_graph');
-        var introCalculator = Desmos.GraphingCalculator(eltIntro, {keypad:false, settingsMenu:false, expressionsTopbar: false, expressionsCollapsed: true,
-            showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true});
-        introCalculator.setMathBounds({left: -1, right: 8, bottom: -5, top: 50});
-        introCalculator.setExpression({id: 'gamma fn', latex: '\\Gamma (\\alpha) = \\int_{0}^{\\infty}t^{\\left(\\alpha-1\\right)}e^{-t}dt ', color: Desmos.Colors.BLACK});
-        introCalculator.setExpression({latex: '(a, \\Gamma(a))', secret : true, color: Desmos.Colors.BLACK, showLabel: true});
-
-        for (let i = 0; i < 11; i ++) {
-            var latexString = `(${i}, \\Gamma(${i}))`
-            introCalculator.setExpression({latex: latexString, secret : true, color: Desmos.Colors.RED, showLabel: true});
-        }
-        
-        
-
-        introCalculator.setExpression({latex: '\\Gamma(a)'});
-        introCalculator.setExpression({latex: 'a = 1', sliderBounds: { min: 0, max: 8, step: 0.01 }});
-        introCalculator.updateSettings({fontSize: Desmos.FontSizes.SMALL});
-        var introNewDefaultState = introCalculator.getState();
-        introCalculator.setDefaultState(introNewDefaultState);
-
-       
-
-   
-        // NEXT
-
-        var elt = document.getElementById('graph');
-        var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar: false, expressionsCollapsed: true,
-            showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
-        calculator.setMathBounds({left: -1, right: 5, bottom: -0.5, top: 4});
-        
-        calculator.setExpression({id: 'gamma fn', latex: '\\Gamma  = \\int_{0}^{\\infty}z^{\\left(\\alpha-1\\right)}e^{-z}dz ', secret: true, hidden: true});
-
-        calculator.setExpression({id: 'gamma dist', latex: 'f(x)=\\left\\{x<0:0,\\frac{\\lambda ^ {\\alpha} x ^ {\\left(\\alpha-1\\right)} e^{- \\lambda x}} {\\Gamma } \\right\\} ', color:Desmos.Colors.BLUE});
-        calculator.setExpression({latex: '\\alpha = 1', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-        calculator.setExpression({latex: '\\lambda  = 1', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-        
-        calculator.setExpression({id: 'integral', latex: 'A=\\int_{a}^{b}f\\left(t\\right)dt'});
-        calculator.setExpression({id: 'area', latex: '\\left\\{f\\left(x\\right)>0: 0, f\\left(x\\right)<0: f\\left(x\\right)\\right\\}<y<\
-        \\left\\{f\\left(x\\right)>0:f\\left(x\\right), f\\left(x\\right)<0: 0\\right\\}\\left\\{a<x<b,b<x<a\\right\\}', color: Desmos.Colors.BLUE});
-        calculator.setExpression({id: 'exponential_1', latex: 'g(x)=\\left\\{x<0:0, e^{-x}\\right\\}', color: Desmos.Colors.RED});
-        
-
-        calculator.setExpression({latex: 'a = 1', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-        calculator.setExpression({latex: 'b = 2', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-        calculator.setExpression({latex: '(a, 0)', secret : true, color: Desmos.Colors.BLACK});
-        calculator.setExpression({latex: '(b, 0)', secret : true, color: Desmos.Colors.BLACK});
-       
-        calculator.updateSettings({fontSize: Desmos.FontSizes.SMALL});
-        var newDefaultState = calculator.getState();
-        calculator.setDefaultState(newDefaultState);
-
-
-        
-    </script>
-   
+    <script src = graphPlots.js></script>
+    <script>plotGamma("intro-graph", "main-graph")</script>
 </body>
-
 </html>

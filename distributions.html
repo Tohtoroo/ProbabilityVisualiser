@@ -6,151 +6,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Probability Visualiser</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar Section -->
+    <!-- navbar -->
     <nav class="navbar">
-        <ul class="navbar__menu">
-            <li><a href="/index.html" class="navbar__links">Home</a></li>
-            <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-        </ul>
-        <!-- <div class="navbar__container">
-            <ul class="navbar__menu">
-                <li><a href="/index.html" class="navbar__links">Home</a></li>
-                <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-            </ul>
-        </div> -->
+        <li><a href="index.html" class="navbar__link">Home</a></li>
+        <li><a href="contact.html" class="navbar__link">Contact</a></li>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="main">
+    <!-- hero -->
+    <div class="margin-top-centralise">
         <div class="dist-type">
             <h1>Discrete Distributions</h1>
             <div class="dist-cards">
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1024.png">
+
+                <!-- not working correctly, some little parts don't link, but minor issue -->
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Bernoulli Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Bernoulli Distribution</a></h1>
+                </a>
+
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Binomial Distribution</a>
                     </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1024.png">
+                </a>
+
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Negative Binomial Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Binomial Distribution</a></h1>
+                </a>
+
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Uniform Distribution</a>
                     </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1024.png">
+                </a>
+
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Geometric Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Negative binomial Distribution</a></h1>
+                </a>
+
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Hypergeometric Distribution</a>
                     </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1024.png">
+                </a>
+
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Poisson Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Uniform Distribution</a></h1>
-                    </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1024.png">
-                    </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Geometric Distribution</a></h1>
-                    </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1024.png">
-                    </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Hypergeometric Distribution</a></h1>
-                    </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1024.png">
-                    </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Poisson Distribution</a></h1>
-                    </div>
-                </div>
+                </a>
+
             </div>
         </div>
-
         <div class="dist-type">
             <h1>Continuous Distributions</h1>
+            
             <div class="dist-cards">
 
-                <div class="dist-card">
-                    
-                    <div class="card-image">
-                        <img src="IMG_1025.jpeg">
+                <a href="dist-normal.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-normal.html" class="dist-card-name">    
+                            Normal Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Normal Distribution</a></h1>
+                </a>
+
+                <a href="dist-exponential.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-exponential.html" class="dist-card-name">    
+                            Exponential Distribution</a>
                     </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1025.jpeg">
+                </a>
+
+                <a href="dist-gamma.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-gamma.html" class="dist-card-name">    
+                            Gamma<br> Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-exponential.html" class="dist__links">Exponential Distribution</a></h1>
+                </a>
+
+                <a href="dist-beta.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-beta.html" class="dist-card-name">    
+                            Beta Distribution</a>
                     </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1025.jpeg">
+                </a>
+
+                <a href="dist-log.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-log.html" class="dist-card-name">    
+                            Log-Normal Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-gamma.html" class="dist__links">Gamma Distribution</a></h1>
+                </a>
+
+                <a href="dist-t.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-t.html" class="dist-card-name">    
+                            T Distribution</a>
                     </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1025.jpeg">
+                </a>
+
+                <a href="dist-chichi.html">
+                    <div class="dist-cards__card">
+                        <div>
+                            <img src="PLACEHOLDER.png" class="dist-card-image">
+                        </div>
+                        <a href="dist-chichi.html" class="dist-card-name">    
+                            Chi-Squared Distribution</a>
                     </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-gamma.html" class="dist__links">Beta<br>Distribution</a></h1>
-                    </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1025.jpeg">
-                    </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Log-Normal Distribution</a></h1>
-                    </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1025.jpeg">
-                    </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-normal.html" class="dist__links">Student's<br>T-Distribution</a></h1>
-                    </div>
-                </div>
-                <div class="dist-card">
-                    <div class="card-image">
-                        <img src="IMG_1025.jpeg">
-                    </div>
-                    <div class="card-name">
-                        <h1><a href="/dist-gamma.html" class="dist__links">Chi-Squared Distribution</a></h1>
-                    </div>
-                </div>
+                </a>
+
             </div>
         </div>
     </div>

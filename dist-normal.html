@@ -1,66 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Normal Distribution</title> <!-- CHANGE TITLE FOR EVERY DIST -->
+    <title>Normal Distribution</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 </head>
 <body>
-    <!-- Navbar Section -->
+    <!-- navbar -->
     <nav class="navbar">
-        <ul class="navbar__menu">
-            <li><a href="/index.html" class="navbar__links">Home</a></li>
-            <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-        </ul>
-        <!-- <div class="navbar__container">
-            <ul class="navbar__menu">
-                <li><a href="/index.html" class="navbar__links">Home</a></li>
-                <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-            </ul>
-        </div> -->
+        <li><a href="index.html" class="navbar__link">Home</a></li>
+        <li><a href="contact.html" class="navbar__link">Contact</a></li>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="main">
-        <!-- <div class="intro">
-            <h1>Normal Distribution</h1>
+    <div class="margin-top-centralise">
+        <h1 class="dist-name">Normal Distribution</h1>
+        <div class="dist-description">
             <p>In statistics, a normal distribution or Gaussian distribution is a type of continuous probability distribution for a real-valued random variable.
-            The general form of its probability density function is {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}}
-            The parameter {\displaystyle \mu }\mu  is the mean or expectation of the distribution (and also its median and mode), while the parameter {\displaystyle \sigma }\sigma  is its standard deviation. The variance of the distribution is {\displaystyle \sigma ^{2}}\sigma ^{2}.
-            A random variable with a Gaussian distribution is said to be normally distributed, and is called a normal deviate. 
-            *this is all from wikipedia and everything there is latex, just find a way to convert*</p>
-        </div> -->
-        <div id="graph">
-            <h1>Normal Distribution</h1>
-            <p>In statistics, a normal distribution or Gaussian distribution is a type of continuous probability distribution for a real-valued random variable.
-            The general form of its probability density function is {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}}
-            The parameter {\displaystyle \mu }\mu  is the mean or expectation of the distribution (and also its median and mode), while the parameter {\displaystyle \sigma }\sigma  is its standard deviation. The variance of the distribution is {\displaystyle \sigma ^{2}}\sigma ^{2}.
-            A random variable with a Gaussian distribution is said to be normally distributed, and is called a normal deviate. 
-            *this is all from wikipedia and everything there is latex, just find a way to convert*</p>
+                The general form of its probability density function is {\displaystyle f(x)={\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}}
+                The parameter {\displaystyle \mu }\mu  is the mean or expectation of the distribution (and also its median and mode), while the parameter {\displaystyle \sigma }\sigma  is its standard deviation. The variance of the distribution is {\displaystyle \sigma ^{2}}\sigma ^{2}.
+                A random variable with a Gaussian distribution is said to be normally distributed, and is called a normal deviate. 
+                *this is all from wikipedia and everything there is latex, just find a way to convert*</p>
             <p>Open the pop-up and adjust the sliders for different values of μ and σ. Check the "Find Cumulative Probability (CDF)" option and enter your desired minimum
-            and maximmum values to view the corresponding area under the curve, a value which also represents the probability.</p>
+                and maximmum values to view the corresponding area under the curve, a value which also represents the probability.</p>
         </div>
+        <div class="graph" id="main-graph"></div>
     </div>
-    <script>
-        var elt = document.getElementById('graph');
-        var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true,
-            showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
-        calculator.setMathBounds({left: -5, right: 5, bottom: -0.5, top: 1});
-        calculator.setExpression({id: 'graph1', latex: '\\operatorname{normaldist}\\left(\\mu,\\ \\sigma\\right)'});
-        calculator.setExpression({id: 'graph2', latex: '\\operatorname{normaldist}\\left(0,\\ 1\\right)', color: Desmos.Colors.RED});
-        calculator.setExpression({latex: '\\mu=0', sliderBounds: { min: -5, max: 5, step: 0.05 }});
-        calculator.setExpression({latex: '\\sigma=1', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-        calculator.updateSettings({fontSize: Desmos.FontSizes.SMALL});
-        var newDefaultState = calculator.getState();
-        calculator.setDefaultState(newDefaultState);
-
-    </script>
+    <script src=graphPlots.js></script>
+    <script>plotNormal("main-graph")</script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+/* general */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,164 +7,183 @@
     font-family: 'Roboto Mono', monospace;
 }
 
-/* Hero Section CSS */
-
-.main {
-    background-color: #fff;
-    text-align: center;
-}
-/* 
-.intro {
-    text-align: center;
-    width: 65%;
-    margin: 60px auto;
-}
-
-.intro h1 {
-    margin-bottom: 30px;
-} */
-
-#graph {
-    width: 65%;
-    height: 500px;
-    margin: 60px auto;
-}
-
-#graph p {
-    margin: 20px auto;
-}
-
-
-.main__container {
+.no-scroll-centralise {
     display: flex;
-    align-items: center;
     justify-content: center;
-    justify-self: center;
-    margin: 0 auto;
-    height: 90vh;
-    background-color: #fff;
-    width: 50%; /* this does not feel like good practice */
-    max-width: 1300px;
-    padding: 0 0;
+    align-items: center;
+    height: calc(100vh - 80px); /* 80px = size of navbar */
 }
 
-.main__content h1 {
-    font-size: 2rem;
-    color: #000;
+.margin-top-centralise {
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    text-align: center;
 }
 
-.main__content h2 {
-    font-size: 1rem;
-    color: #000;
-}
-
-.main__content p a {
-    font-size: 1rem;
+.inline-link {
     text-decoration: none;
     color: #bc89ff;
-    transition: all 0.3s;
 }
 
-.main__content p a:hover {
+.inline-link:hover {
     color: #a35cff;
 }
 
-.main__content p a:active {
-    color: #fff;
+.inline-link:active {
+    color: white;
     background-color: #a35cff;
 }
 
-.main__btns {
+/* navbar */
+
+.navbar {
     display: flex;
-    align-items: center;
+    height: 80px;
     justify-content: space-between;
-    justify-self: center;
+    align-items: center;
+    background-color: #eeeeee;
+    list-style-type: none;
+    position: sticky;
+    padding: 0 70px;
 }
 
-.main__btn {
-    margin: 30px 30px;
-    height: 100%;
-    width: 240px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    background: #eeeeee;
-    color: #000;
+.navbar__link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
     transition: all 0.3s;
 }
 
-.main__btn:hover {
+.navbar__link:hover {
+    color: #bc89ff;
+}
+
+.navbar__link:active {
+    color: #a35cff;
+}
+
+/* homepage */
+
+.homepage-content {
+    text-align: center;
+}
+
+.homepage-content h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.homepage-content h2 {
+    font-size: 1rem;
+}
+
+.homepage__btn {
+    border: none;
+    margin: 20px;
+    width: 240px;
+    border-radius: 10px;
+    background: #eeeeee;
+    transition: all 0.3s;
+}
+
+.homepage__btn a {
+    padding: 15px 15px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    width: 100%;
+}
+
+.homepage__btn:hover {
     background: #bc89ff;
 }
 
-.main__btn:active {
+.homepage__btn:active {
     background: #a35cff;
 }
 
-.main__btn a {
-    padding: 15px 15px;
-    display: inline-block;
-    position: relative;
-    color: #000;
-    text-decoration: none;
-    height: 100%;
-    width: 100%;
-    transition: all 0.3s;
+.homepage__btn a:hover {
+    color: white;
 }
 
-.main__btn a:hover {
-    color: #fff;
+/* contact */
+
+.contact-content {
+    text-align: center;
 }
+
+.contact-emails {
+    margin-top: 20px;
+}
+
+/* distributions overview */
 
 .dist-type {
-    margin-top: 60px;
+    text-align: center;
+    margin-bottom: 60px;
+    width: 80%;
+    margin: auto;
 }
 
 .dist-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 80%;
     margin: 30px auto;
 }
 
-.dist-card {
+.dist-cards__card {
+    display: grid;
+    grid-template-rows: 190px 1fr;
     height: 250px;
     width: 200px;
+    text-align: center;
     background-color: #bc89ff;
     border-radius: 10px;
     margin: 10px 10px;
 }
 
-.card-image img {
-    margin-top: 10px;
-    width: 180px;
+.dist-cards__card:hover {
+    box-shadow: 0px 0px 30px 1px #bdbcbc;
+}
+
+.dist-card-image {
     height: 180px;
+    width: 180px;
+    margin-top: 10px;
     border-radius: 8px;
 }
 
-.card-name {
-    height: 50px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    padding: 10px;
-}
-
-.card-name h1 {
-    font-size: 1.1rem;
-}
-
-.dist__links {
-    color: #000;
+.dist-card-name {
+    width: 100%;
+    margin: auto;
+    color: black;
     text-decoration: none;
+    font-size: 1.1rem;
     transition: all 0.3s;
 }
 
-.dist__links:hover {
-    color: #ffffff;
+.dist-card-name:hover {
+    color: white;
 }
 
-.dist__links:active {
-    color: #ffffff;
+/* single distribution */
+
+.dist-description {
+    text-align: justify;
+    width: 80%;
+    margin: 30px auto;
+}
+
+.dist-description p {
+    margin-bottom: 20px;
+}
+
+.graph {
+    width: 80%;
+    margin: auto;
+    height: 500px;
+    margin-bottom: 60px;
 }

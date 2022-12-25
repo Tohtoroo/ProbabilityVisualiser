@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exponential Distribution</title> <!-- CHANGE TITLE FOR EVERY DIST -->
+    <title>Exponential Distribution</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 </head>
 <body>
-    <!-- Navbar Section -->
+    <!-- navbar -->
     <nav class="navbar">
-        <ul class="navbar__menu">
-            <li><a href="/index.html" class="navbar__links">Home</a></li>
-            <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-        </ul>
-        <!-- <div class="navbar__container">
-            <ul class="navbar__menu">
-                <li><a href="/index.html" class="navbar__links">Home</a></li>
-                <li><a href="/contact.html" class="navbar__links">Contact</a></li>
-            </ul>
-        </div> -->
+        <li><a href="index.html" class="navbar__link">Home</a></li>
+        <li><a href="contact.html" class="navbar__link">Contact</a></li>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="main">
-        <div id="graph">
-            <h1>Exponential Distribution</h1>
+    <div class="margin-top-centralise">
+        <h1 class="dist-name">Exponential Distribution</h1>
+        <div class="dist-description">
             <p>In probability theory and statistics, the exponential distribution is the continuous analogue of the geometric distribution, and it has the key property of being memoryless. 
                 The exponential distribution is the probability distribution of the time between events in a Poisson point process, 
                 i.e., a process in which events occur continuously and independently at a constant average rate.
@@ -38,50 +28,9 @@
                 *this is all from wikipedia and everything there is latex, just find a way to convert*</p>
             <p>Open the pop-up and adjust the sliders for different values of λ. To find the Cumulative Probability, enter your desired minimum (a) and maximmum (b) values to view the corresponding area under the curve, a value which also represents the probability.</p>
         </div>
-        <!-- <h1> The Exponential Distribution </h1>
-        <br>
-        <br>
-        <div class="intro">
-        In probability theory and statistics, the exponential distribution is the continuous analogue of the geometric distribution, and it has the key property of being memoryless. 
-        The exponential distribution is the probability distribution of the time between events in a Poisson point process, 
-        i.e., a process in which events occur continuously and independently at a constant average rate.
-        It is a particular case of the gamma distribution.     
-        *this is all from wikipedia and everything there is latex, just find a way to convert*
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-
-        <div id="graph" style="width: 900px; height: 500px; margin: auto;">
-            <h2>The Exponential Distribution</h2>
-            <br>
-            Open the pop-up and adjust the sliders for different values of λ.
-            To find the Cumulative Probability, enter your desired minimum (a) and maximmum (b) values to view the corresponding area under the curve, a value which also represents the probability.
-            <br>
-            <br>
-        </div> -->
+        <div class="graph" id="main-graph"></div>
     </div>
-    <script>
-        var elt = document.getElementById('graph');
-        var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar: false,expressionsCollapsed:true,
-            showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
-        calculator.setMathBounds({left: -1, right: 5, bottom: -0.5, top: 4});
-        calculator.setExpression({id: 'graph1', latex: 'f(x)=\\left\\{x<0:0,\\lambda e^{-\\lambda x}\\right\\}'});
-        calculator.setExpression({id: 'integral', latex: 'A=\\int_{a}^{b}f\\left(t\\right)dt'});
-        calculator.setExpression({id: 'area', latex: '\\left\\{f\\left(x\\right)>0: 0, f\\left(x\\right)<0: f\\left(x\\right)\\right\\}<y<\
-        \\left\\{f\\left(x\\right)>0:f\\left(x\\right), f\\left(x\\right)<0: 0\\right\\}\\left\\{a<x<b,b<x<a\\right\\}', color: Desmos.Colors.BLUE});
-        calculator.setExpression({id: 'graph2', latex: 'g(x)=\\left\\{x<0:0, e^{-x}\\right\\}', color: Desmos.Colors.RED});
-        calculator.setExpression({latex: '\\lambda  = 1', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-
-        calculator.setExpression({latex: 'a = 0', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-        calculator.setExpression({latex: 'b = 1', sliderBounds: { min: 0, max: 10, step: 0.05 }});
-       
-        calculator.updateSettings({fontSize: Desmos.FontSizes.SMALL});
-        var newDefaultState = calculator.getState();
-        calculator.setDefaultState(newDefaultState);
-    </script>
-   
+    <script src=graphPlots.js></script>
+    <script>plotExpo("main-graph")</script>
 </body>
-
 </html>

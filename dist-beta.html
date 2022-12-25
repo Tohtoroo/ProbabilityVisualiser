@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Probability Visualiser</title>
+    <title>Beta Distribution</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
 </head>
 <body>
     <!-- navbar -->
@@ -17,21 +18,14 @@
         <li><a href="contact.html" class="navbar__link">Contact</a></li>
     </nav>
 
-    <!-- hero -->
-    <div class="no-scroll-centralise">
-        <div class="homepage-content">
-            <h1>Probability Visualiser</h1>
-            <h2>A project by three NUS students.</h2>
-            <div class="homepage-buttons">
-                <button class="homepage__btn">
-                    <a href="distributions.html">Explore the distributions</a>
-                </button>
-                <button class="homepage__btn">
-                    <a href="quiz.html">Quiz yourself</a>
-                </button>
-            </div>
+    <div class="margin-top-centralise">
+        <h1 class="dist-name">Beta Distribution</h1>
+        <div class="dist-description">
+            <p>Description here</p>
         </div>
+        <div class="graph" id="main-graph"></div>
     </div>
-
+    <script src = graphPlots.js></script>
+    <script>plotBeta("main-graph")</script>
 </body>
 </html>
