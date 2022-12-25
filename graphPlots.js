@@ -10,8 +10,7 @@ function plotIntegralArea(calculator, minimum, maximum, steps, aVal, bVal) {
     calculator.setExpression({id: 'integral', latex: 'A=\\int_{a}^{b}f\\left(z\\right)dz'});
     calculator.setExpression({id: 'area', latex: '\\left\\{f\\left(x\\right)>0: 0, f\\left(x\\right)<0: f\\left(x\\right)\\right\\}<y<\
     \\left\\{f\\left(x\\right)>0:f\\left(x\\right), f\\left(x\\right)<0: 0\\right\\}\\left\\{a<x<b,b<x<a\\right\\}', color: Desmos.Colors.BLUE});  
-
-    
+ 
     var initA = aVal || (maximum - minimum) / 2
     var initB = bVal || (maximum - minimum) / 2
     var increment = steps || ''
@@ -87,9 +86,6 @@ function plotGamma(gammaFunctionElementId, elementId) {
     
 
     calculator.setExpression({id: 'exponential_1', latex: 'g(x)=\\left\\{x<0:0, e^{-x}\\right\\}', color: Desmos.Colors.RED});
-    
-
-    
    
     plotIntegralArea(calculator, 0, 10, '', 1, 2)
     updateSettingsDesmos(calculator)
@@ -107,7 +103,6 @@ function plotBeta(elementId) {
     calculator.setExpression({id: 'graph1', latex: ' f(x)= \\left\\{0\\leq x \\leq 1: \\frac{x^{\\left(\\alpha-1\\right)}\\left(1-x\\right)^{\\left(\\beta-1\\right)}}{B(\\alpha, \\beta)}, 0 \\right\\} '});
     calculator.setExpression({latex: '\\alpha = 1', sliderBounds: { min: 0, max: 10, step: 0.01}});
     calculator.setExpression({latex: '\\beta = 1', sliderBounds: { min: 0, max: 10, step: 0.01}});
-
 
     plotIntegralArea(calculator, 0, 1, '', 0.2, 0.4)
     updateSettingsDesmos(calculator)
