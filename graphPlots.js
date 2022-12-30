@@ -108,3 +108,16 @@ function plotBeta(elementId) {
     updateSettingsDesmos(calculator)
 
 }
+
+function plotUniform(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
+    calculator.setMathBounds({left: -5, right: 5, bottom: -0.5, top: 5});
+    calculator.setExpression({id: 'graph1', latex: '\\operatorname{uniformdist}\\left(a,\\ b\\right)'});
+    calculator.setExpression({latex: 'a=0', sliderBounds: { min: -5, max: 5}});
+    calculator.setExpression({latex: 'b=1', sliderBounds: { min: 0, max: 10}});
+   
+    updateSettingsDesmos(calculator)
+    
+}
