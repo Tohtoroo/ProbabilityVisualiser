@@ -8,11 +8,11 @@ const quizData = [
         correct: "a",
     },
     {
-        question: "Placeholder",
-        a: "Placeholder",
-        b: "Placeholder",
-        c: "Placeholder",
-        d: "Placeholder",
+        question: "Which of the following is not a discrete distribution?",
+        a: "Binomial",
+        b: "Normal",
+        c: "Bernoulli",
+        d: "Geometric",
         correct: "b",
     },
     {
@@ -91,7 +91,7 @@ submitBtn.addEventListener("click", () => {
             loadQuiz();
         } else {
             quiz.innerHTML = 
-            `<h2 class = "question">You answered correctly at ${score}/${quizData.length} questions.</h2>
+            `<h2 class = "question">You answered ${score}/${quizData.length} questions correctly.</h2>
             <button class = "quiz_btn" onclick="location.reload()">Reload</button>`;
         }
     }
