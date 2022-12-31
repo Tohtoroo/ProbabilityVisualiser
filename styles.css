@@ -233,11 +233,6 @@
     padding: 1.3rem;
 }
 
-button:hover {
+.quiz_btn:hover {
     background-color: #a35cff;
-}
-
-button:focus {
-    background-color: #44b927;
-    outline: none;
 }

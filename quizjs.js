@@ -16,17 +16,17 @@ const quizData = [
         correct: "b",
     },
     {
-        question: "Placeholder",
+        question: "Is Valerie dumdum?",
         a: "Placeholder",
-        b: "Placeholder",
+        b: "Yes",
         c: "Placeholder",
         d: "Placeholder",
         correct: "b",
     },
     {
-        question: "Placeholder",
+        question: "Is Hung Yee dumdum?",
         a: "Placeholder",
-        b: "Placeholder",
+        b: "Yes",
         c: "Placeholder",
         d: "Placeholder",
         correct: "b",
@@ -43,22 +43,41 @@ const c_text = document.getElementById("c_text");
 const d_text = document.getElementById("d_text");
 const submitBtn = document.getElementById("submit");
 
-let currentQuiz = 0;
+// make the quiz randomised and not in order
 let score = 0;
+let numberOfQuestionsDone = 0;
+let questionNumberInGrabBag = Array.from(Array(quizData.length).keys()); //create an array of numbers from 0 to 3 inclusive
+let currentQuizData = 0;
 
 loadQuiz();
+
+function generateRandomNumber(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function generateRandomQuestionNumber() {
+    let randomQuestionNumber = generateRandomNumber(questionNumberInGrabBag.length); //generate numbers from 0 to 3 inclusive
+    randomNumber = questionNumberInGrabBag[randomQuestionNumber];  //get the number from the array of 0 to 3
+    return randomNumber; //return the number from the array
+}
 
 function loadQuiz() {
 
     deselectAnswers();
+    const randomNumber = generateRandomQuestionNumber();
+    currentQuizData = quizData[randomNumber];
 
-    const currentQuizData = quizData[currentQuiz];
+    const index = questionNumberInGrabBag.indexOf(randomNumber); //get the index of the number in the array
+    if (index > -1) {
+        questionNumberInGrabBag.splice(index, 1); //gets rid of the number in the array so that it won't be repeated
+    }
 
     questionEl.innerText = currentQuizData.question;
     a_text.innerText = currentQuizData.a;
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
     d_text.innerText = currentQuizData.d;
+
 }
 
 function getSelected() {
@@ -80,14 +99,15 @@ function deselectAnswers() {
 
 submitBtn.addEventListener("click", () => {
     const answer = getSelected();
+
     if (answer) {
-        if (answer === quizData[currentQuiz].correct) {
+        if (answer === currentQuizData.correct) {
             score++;
         }
 
-        currentQuiz++;
+        numberOfQuestionsDone++;
 
-        if (currentQuiz < quizData.length) {
+        if (numberOfQuestionsDone < quizData.length) {
             loadQuiz();
         } else {
             quiz.innerHTML = 
