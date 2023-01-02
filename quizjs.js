@@ -1,36 +1,70 @@
+const quizLength = 4;
+
 const quizData = [
     {
-        question: "What is probability",
+        question: "What is probability?",
         a: "The likelihood of an event occurring",
-        b: "Placeholder",
-        c: "Placeholder",
-        d: "Placeholder",
+        b: "The study of numerical data",
+        c: "The set of all possible outcomes of an experiment",
+        d: "The outcome of an experiment",
         correct: "a",
     },
     {
         question: "Which of the following is not a discrete distribution?",
-        a: "Binomial",
-        b: "Normal",
-        c: "Bernoulli",
-        d: "Geometric",
+        a: "Binomial distribution",
+        b: "Normal distribution",
+        c: "Bernoulli distribution",
+        d: "Geometric distribution",
         correct: "b",
     },
     {
-        question: "Is Valerie dumdum?",
-        a: "Placeholder",
-        b: "Yes",
-        c: "Placeholder",
-        d: "Placeholder",
+        question: "Which of the following is not a continuous distribution?",
+        a: "Normal distribution",
+        b: "Chi-Squared distribution",
+        c: "Poisson distribution",
+        d: "Exponential distribution",
+        correct: "c",
+    },
+    {
+        question: "Which distribution is the Bernoulli distribution a special case of?",
+        a: "Poisson distribution",
+        b: "Binomial distribution",
+        c: "Exponential distribution",
+        d: "Normal distribution",
         correct: "b",
     },
     {
-        question: "Is Hung Yee dumdum?",
+        question: "Which distribution is the exponential distribution a special case of?",
+        a: "Poisson distribution",
+        b: "Continuous uniform distribution",
+        c: "Beta distribution",
+        d: "Gamma distribution",
+        correct: "d",
+    },
+    {
+        question: "What are the mean and standard deviation values of a standard normal distribution?",
+        a: "Mean = 0, standard deviation = 1",
+        b: "Mean = 1, standard deviation = 1",
+        c: "Mean = 1, standard deviation = 0",
+        d: "Mean = 0, standard deviation = 2",
+        correct: "a",
+    },
+    {
+        question: "Which distribution is most similar to the normal distribution?",
+        a: "Exponential distribution",
+        b: "Poisson distribution",
+        c: "Chi-Squared distribution",
+        d: "Student's T-distribution",
+        correct: "d",
+    },
+    {
+        question: "What does the hypergeometric distribution describe?",
         a: "Placeholder",
-        b: "Yes",
+        b: "This one!",
         c: "Placeholder",
         d: "Placeholder",
         correct: "b",
-    },
+    }
 
 ];
 
@@ -107,11 +141,11 @@ submitBtn.addEventListener("click", () => {
 
         numberOfQuestionsDone++;
 
-        if (numberOfQuestionsDone < quizData.length) {
+        if (numberOfQuestionsDone < quizLength) {
             loadQuiz();
         } else {
             quiz.innerHTML = 
-            `<h2 class = "question">You answered ${score}/${quizData.length} questions correctly.</h2>
+            `<h2 class = "question">You answered ${score}/${quizLength} questions correctly.</h2>
             <button class = "quiz_btn" onclick="location.reload()">Reload</button>`;
         }
     }
