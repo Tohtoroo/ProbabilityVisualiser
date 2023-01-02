@@ -165,3 +165,15 @@ function plotLogNormal(elementId) {
     updateSettingsDesmos(calculator)
     
 }
+
+function plotT(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
+    calculator.setMathBounds({left: -5, right: 5, bottom: -0.5, top: 1});
+    calculator.setExpression({id: 'graph1', latex: '\\operatorname{tdist}\\left(\\nu\\right)'});
+    calculator.setExpression({latex: '\\nu=0', sliderBounds: { min: 0, max: 10}});
+   
+    updateSettingsDesmos(calculator)
+    
+}
