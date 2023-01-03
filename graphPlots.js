@@ -30,8 +30,8 @@ function plotBinomial(elementId) {
         showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Mass"});
     calculator.setMathBounds({left: -0.1, right: 10, bottom: -0.1, top: 1});
     calculator.setExpression({id: 'graph1', latex: '\\operatorname{binomialdist}\\left(n,\\ p\\right)'});
-    calculator.setExpression({latex: 'n=0', sliderBounds: { min: 0, max: 10, step: 1}});
-    calculator.setExpression({latex: 'p=0', sliderBounds: { min: 0, max: 1}});
+    calculator.setExpression({latex: 'n=10', sliderBounds: { min: 0, max: 10, step: 1}});
+    calculator.setExpression({latex: 'p=0.5', sliderBounds: { min: 0, max: 1}});
    
     updateSettingsDesmos(calculator)
     
@@ -155,7 +155,7 @@ function plotUniform(elementId) {
 function plotLogNormal(elementId) {
     var elt = document.getElementById(elementId);
     var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
-        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Mass"});
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
     calculator.setMathBounds({left: -0.1, right: 10, bottom: -0.1, top: 1});
     calculator.setExpression({id: 'graph1', latex: 'f(x)=\\left\\{x<0:0, \\frac{1}{x \\sigma \\sqrt{2 \\pi}} e^{-\\frac{\\left(\\ln x - \\mu\\right)^{2}}{2\\sigma^{2}}}\\right\\}'});
     calculator.setExpression({latex: '\\mu=0', sliderBounds: { min: -5, max: 5}});
