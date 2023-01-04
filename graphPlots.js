@@ -29,7 +29,7 @@ function sumDiscreteProb(calculator, sumMin, sumMax, functionName) {
     calculator.setExpression({id: 'graph4', latex: `L = [a...b]`, secret: true, color: Desmos.Colors.BLUE});
     
     calculator.setExpression({id: 'sum', latex: `(L, ${functionName}(L)t)`});
-    calculator.setExpression({id: 'sum2', latex: `\\sum_{i=a}^{b}{${functionName}(i)}`, color: Desmos.Colors.BLUE});
+    calculator.setExpression({id: 'sum2', latex: `P = \\sum_{i=a}^{b}{${functionName}(i)}`, color: Desmos.Colors.BLUE});
 }
 
 function discreteListCreator(calculator, functionName, minimum, maximum, sumA, sumB) {
