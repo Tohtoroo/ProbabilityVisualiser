@@ -24,8 +24,8 @@ function plotIntegralArea(calculator, minimum, maximum, steps, aVal, bVal) {
 
 
 function sumDiscreteProb(calculator, sumMin, sumMax, functionName) {
-    calculator.setExpression({id: 'a', latex: `a = ${sumMin}`, sliderBounds: {min: sumMin, max: sumMax, step: 1}});
-    calculator.setExpression({id: 'b', latex: `b = ${sumMax/2}`, sliderBounds: {min: sumMin, max: sumMax, step: 1}});
+    calculator.setExpression({id: 'a', latex: `a = ${sumMin}`, sliderBounds: {min: Math.max(sumMin, -10), max: sumMax, step: 1}});
+    calculator.setExpression({id: 'b', latex: `b = ${sumMax/2}`, sliderBounds: {min: Math.max(sumMin, -10), max: sumMax, step: 1}});
     calculator.setExpression({id: 'graph4', latex: `L = [a...b]`, secret: true, color: Desmos.Colors.BLUE});
     
     calculator.setExpression({id: 'sum', latex: `(L, ${functionName}(L)t)`, color: Desmos.Colors.BLUE, secret: true});
@@ -43,6 +43,23 @@ function discreteListCreator(calculator, functionName, minimum, maximum, sumA, s
 
 
 // discrete distributions
+
+function plotDiscUniform(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
+    calculator.setMathBounds({left: -2, right: 10, bottom: -0.1, top: 0.6});
+    
+    calculator.setExpression({id: 'graph1', latex: 'f(x)=\\left\\{ x<u : 0, x>v:0, \\frac{1}{v - u + 1} \\right\\}', hidden: true, secret: true});
+    calculator.setExpression({latex: 'u=0', sliderBounds: { min: -5, max: 10, step: 1}});
+    calculator.setExpression({latex: 'v=4', sliderBounds: { min: -5, max: 10, step: 1}});
+    
+
+    discreteListCreator(calculator, "f", -4000, 4099, 0, 50)
+    updateSettingsDesmos(calculator)
+    
+}
+
 
 function plotBernoulli(elementId) {
     var elt = document.getElementById(elementId);
@@ -131,20 +148,6 @@ function plotPoisson(elementId) {
    
     updateSettingsDesmos(calculator)
     
-}
-
-function plotDiscUniform(elementId) {
-    var elt = document.getElementById(elementId);
-    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
-        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
-    calculator.setMathBounds({left: -5, right: 5, bottom: -0.5, top: 5});
-    calculator.setExpression({id: 'graph1', latex: 'f(x) = \\frac{1}{t - s + 1}'});
-    calculator.setExpression({latex: 's=0', sliderBounds: { min: -5, max: 5, step: 1}});
-    calculator.setExpression({latex: 't=1', sliderBounds: { min: 0, max: 10, step: 1}});
-   
-    discreteListCreator(calculator, "f", 0, 9999, 0, 50)
-    updateSettingsDesmos(calculator)
-    // to be fixed!!
 }
 
 // continuous distributions
