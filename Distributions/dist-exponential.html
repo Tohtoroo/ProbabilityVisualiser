@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exponential Distribution</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
@@ -14,9 +14,9 @@
 <body>
     <!-- navbar -->
     <nav class="navbar">
-        <li><a href="index.html" class="navbar__link">Home</a></li>
-        <li><a href="distributions.html" class="navbar__link">Distributions</a></li>
-        <li><a href="contact.html" class="navbar__link">Contact</a></li>
+        <li><a href="../index.html" class="navbar__link">Home</a></li>
+        <li><a href="../distributions.html" class="navbar__link">Distributions</a></li>
+        <li><a href="../contact.html" class="navbar__link">Contact</a></li>
     </nav>
 
     <div class="margin-top-centralise">
@@ -25,13 +25,13 @@
             <p>In probability theory and statistics, the exponential distribution is the continuous analogue of the geometric distribution, and it has the key property of being memoryless. 
                 The exponential distribution is the probability distribution of the time between events in a Poisson point process, 
                 i.e., a process in which events occur continuously and independently at a constant average rate.
-                It is a particular case of the <a href="/dist-gamma.html" class="inline-link">gamma distribution</a>.
+                It is a particular case of the <a href="../Distributions/dist-gamma.html" class="inline-link">gamma distribution</a>.
                 *this is all from wikipedia and everything there is latex, just find a way to convert*</p>
             <p>Open the pop-up and adjust the sliders for different values of λ. To find the Cumulative Probability, enter your desired minimum (a) and maximmum (b) values to view the corresponding area under the curve, a value which also represents the probability.</p>
         </div>
         <div class="graph" id="main-graph"></div>
     </div>
-    <script src=graphPlots.js></script>
+    <script src=../graphPlots.js></script>
     <script>plotExpo("main-graph")</script>
 </body>
 </html>
