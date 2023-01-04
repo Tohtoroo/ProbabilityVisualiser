@@ -28,13 +28,13 @@ function sumDiscreteProb(calculator, sumMin, sumMax, functionName) {
     calculator.setExpression({id: 'b', latex: `b = ${sumMax/2}`, sliderBounds: {min: sumMin, max: sumMax, step: 1}});
     calculator.setExpression({id: 'graph4', latex: `L = [a...b]`, secret: true, color: Desmos.Colors.BLUE});
     
-    calculator.setExpression({id: 'sum', latex: `(L, ${functionName}(L)t)`});
+    calculator.setExpression({id: 'sum', latex: `(L, ${functionName}(L)t)`, color: Desmos.Colors.BLUE});
     calculator.setExpression({id: 'sum2', latex: `P = \\sum_{i=a}^{b}{${functionName}(i)}`, color: Desmos.Colors.BLUE});
 }
 
 function discreteListCreator(calculator, functionName, minimum, maximum, sumA, sumB) {
-    calculator.setExpression({id: 'graph2', latex: `n = [${minimum}...${maximum}]`, secret: true});
-    calculator.setExpression({id: 'graph3', latex: `(n, ${functionName}(n))`, secret: true, color: Desmos.Colors.BLUE});
+    calculator.setExpression({id: 'graph2', latex: `J = [${minimum}...${maximum}]`, secret: true});
+    calculator.setExpression({id: 'graph3', latex: `(J, ${functionName}(J))`, secret: true, color: Desmos.Colors.BLUE});
 
     var sumMin = sumA || minimum
     var sumMax = sumB || maximum
@@ -43,6 +43,26 @@ function discreteListCreator(calculator, functionName, minimum, maximum, sumA, s
 
 
 // discrete distributions
+
+function plotHyperGeom(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false, expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Mass"});
+    
+    var latexString = 'f(x) = \\frac{ \\operatorname{nCr}\\left(m, \\operatorname{floor}\\left(x\\right)\\right)}{\\operatorname{nCr}\\left(N,n\\right)} \\operatorname{nCr}\\left(N-m,n-\\operatorname{floor}\\left(x\\right)\\right)'
+    calculator.setMathBounds({left: -2, right: 20, bottom: -0.1, top: 1});
+    calculator.setExpression({id: 'graph1', latex: latexString, secret: true, hidden: true}); 
+    calculator.setExpression({id: 'p', latex: 'p = 0.5', sliderBounds: { min: 0, max: 1}});
+    
+    calculator.setExpression({id: 'N', latex: "N=36", sliderBounds: { min: 0, max: 100, step: 1}});
+    calculator.setExpression({id: 'm', latex: "m=19", sliderBounds: { min: 0, max: 100, step: 1}});
+    calculator.setExpression({id: 'n', latex: "n=14", sliderBounds: { min: 0, max: 100, step: 1}});
+
+
+    discreteListCreator(calculator, "f", 0, 9999, 0, 50)
+    updateSettingsDesmos(calculator)
+
+}
 
 function plotGeom(elementId) {
 
@@ -56,8 +76,6 @@ function plotGeom(elementId) {
     
     
     discreteListCreator(calculator, "f", 0, 9999, 0, 50)
-
-
     updateSettingsDesmos(calculator)
 }
 
