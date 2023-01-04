@@ -28,7 +28,7 @@ function sumDiscreteProb(calculator, sumMin, sumMax, functionName) {
     calculator.setExpression({id: 'b', latex: `b = ${sumMax/2}`, sliderBounds: {min: sumMin, max: sumMax, step: 1}});
     calculator.setExpression({id: 'graph4', latex: `L = [a...b]`, secret: true, color: Desmos.Colors.BLUE});
     
-    calculator.setExpression({id: 'sum', latex: `(L, ${functionName}(L)t)`, color: Desmos.Colors.BLUE});
+    calculator.setExpression({id: 'sum', latex: `(L, ${functionName}(L)t)`, color: Desmos.Colors.BLUE, secret: true});
     calculator.setExpression({id: 'sum2', latex: `P = \\sum_{i=a}^{b}{${functionName}(i)}`, color: Desmos.Colors.BLUE});
 }
 
