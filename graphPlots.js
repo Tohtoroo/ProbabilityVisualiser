@@ -44,6 +44,21 @@ function discreteListCreator(calculator, functionName, minimum, maximum, sumA, s
 
 // discrete distributions
 
+function plotNegBinomial(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false, expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Mass"});
+
+    var latexString = " f(x) = \\operatorname{nCr}\\left(\\operatorname{floor}\\left(x\\right)+R-1, \\operatorname{floor}\\left(x\\right)\\right)\\cdot p^{R}\\cdot\\left(1-p\\right)^{\\operatorname{floor}\\left(x\\right)}"
+    calculator.setMathBounds({left: -2, right: 20, bottom: -0.1, top: 1});
+    calculator.setExpression({id: 'graph1', latex: latexString, secret: true, hidden: true}); 
+    calculator.setExpression({id: 'p', latex: 'p = 0.5', sliderBounds: { min: 0, max: 1}});
+    calculator.setExpression({id: 'r', latex: 'R = 10', sliderBounds: { min: 0, max: 100, step: 1}, hidden: true});
+
+    discreteListCreator(calculator, "f", 0, 9999, 0, 50)
+    updateSettingsDesmos(calculator)
+}
+
 function plotHyperGeom(elementId) {
     var elt = document.getElementById(elementId);
     var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false, expressionsCollapsed:true, 
