@@ -22,7 +22,45 @@ function plotIntegralArea(calculator, minimum, maximum, steps, aVal, bVal) {
     calculator.setExpression({latex: '(b, 0)', secret : true, color: Desmos.Colors.BLACK});
 }
 
+
+function sumDiscreteProb(calculator, sumMin, sumMax, functionName) {
+    calculator.setExpression({id: 'a', latex: `a = ${sumMin}`, sliderBounds: {min: sumMin, max: sumMax, step: 1}});
+    calculator.setExpression({id: 'b', latex: `b = ${sumMax/2}`, sliderBounds: {min: sumMin, max: sumMax, step: 1}});
+    calculator.setExpression({id: 'graph4', latex: `L = [a...b]`, secret: true, color: Desmos.Colors.BLUE});
+    
+    calculator.setExpression({id: 'sum', latex: `(L, ${functionName}(L)t)`});
+    calculator.setExpression({id: 'sum2', latex: `\\sum_{i=a}^{b}{${functionName}(i)}`, color: Desmos.Colors.BLUE});
+}
+
+function discreteListCreator(calculator, functionName, minimum, maximum, sumA, sumB) {
+    calculator.setExpression({id: 'graph2', latex: `n = [${minimum}...${maximum}]`, secret: true});
+    calculator.setExpression({id: 'graph3', latex: `(n, ${functionName}(n))`, secret: true, color: Desmos.Colors.BLUE});
+
+    var sumMin = sumA || minimum
+    var sumMax = sumB || maximum
+    sumDiscreteProb(calculator, sumMin, sumMax, functionName)
+}
+
+
 // discrete distributions
+
+function plotGeom(elementId) {
+
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false, expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Mass"});
+    
+    calculator.setMathBounds({left: -2, right: 20, bottom: -0.1, top: 1});
+    calculator.setExpression({id: 'graph1', latex: 'f(x) = \\left(1-p\\right)^{\\operatorname{floor}\\left(x\\right)}p', secret: true, hidden: true});
+    calculator.setExpression({id: 'p', latex: 'p = 0.5', sliderBounds: { min: 0, max: 1}});
+    
+    
+    discreteListCreator(calculator, "f", 0, 9999, 0, 50)
+
+
+    updateSettingsDesmos(calculator)
+}
+
 
 function plotBinomial(elementId) {
     var elt = document.getElementById(elementId);
@@ -168,12 +206,14 @@ function plotLogNormal(elementId) {
 
 function plotT(elementId) {
     var elt = document.getElementById(elementId);
-    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false, expressionsCollapsed:true, 
         showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
     calculator.setMathBounds({left: -5, right: 5, bottom: -0.5, top: 1});
     calculator.setExpression({id: 'graph1', latex: '\\operatorname{tdist}\\left(\\nu\\right)'});
-    calculator.setExpression({latex: '\\nu=0', sliderBounds: { min: 0, max: 10}});
+    calculator.setExpression({latex: '\\nu=0', sliderBounds: { min: 0, max: 20}});
    
     updateSettingsDesmos(calculator)
     
 }
+
+
