@@ -216,4 +216,20 @@ function plotT(elementId) {
     
 }
 
+function plotChiChi(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false, expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
+
+    calculator.setMathBounds({left: -1, right: 10, bottom: -0.1, top: 0.5});
+    calculator.setExpression({latex: 'k=1', sliderBounds: { min: 1, max: 20, step: 1}});
+    calculator.setExpression({id: 'gamma fn', latex: gammaLatex("\\alpha"), hidden: true});
+    calculator.setExpression({id: 'graph1', latex: 'f(x)=\\left\\{x<0:0, \\frac{x^{\\frac{k}{2} -1} e^{\\frac{-x}{2}}}{2^{\\frac{k}{2}}  \\Gamma(\\frac{k}{2}) }   \\right\\}',  color:Desmos.Colors.BLUE});
+
+
+    plotIntegralArea(calculator, 0, 10, '', 1, 2)
+    updateSettingsDesmos(calculator)
+
+}
+
 
