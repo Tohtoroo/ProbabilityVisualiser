@@ -227,7 +227,7 @@ function plotChiChi(elementId) {
     calculator.setExpression({id: 'graph1', latex: 'f(x)=\\left\\{x<0:0, \\frac{x^{\\frac{k}{2} -1} e^{\\frac{-x}{2}}}{2^{\\frac{k}{2}}  \\Gamma(\\frac{k}{2}) }   \\right\\}',  color:Desmos.Colors.BLUE});
 
 
-    plotIntegralArea(calculator, 0, 10, '', 1, 2)
+    plotIntegralArea(calculator, 0, 100, '', 1, 2)
     updateSettingsDesmos(calculator)
 
 }
