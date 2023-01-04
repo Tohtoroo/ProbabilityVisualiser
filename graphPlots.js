@@ -44,6 +44,19 @@ function discreteListCreator(calculator, functionName, minimum, maximum, sumA, s
 
 // discrete distributions
 
+function plotBernoulli(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Mass"});
+    calculator.setMathBounds({left: -0.1, right: 1.5, bottom: -0.1, top: 1});
+    // using built-in binomial dist function with n set to 1; confusing?s
+    calculator.setExpression({id: 'graph1', latex: '\\operatorname{binomialdist}\\left(1,\\ p\\right)'});
+    calculator.setExpression({latex: 'p=0.5', sliderBounds: { min: 0, max: 1}});
+   
+    updateSettingsDesmos(calculator)
+    
+}
+
 function plotNegBinomial(elementId) {
     var elt = document.getElementById(elementId);
     var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false, expressionsCollapsed:true, 
@@ -118,6 +131,20 @@ function plotPoisson(elementId) {
    
     updateSettingsDesmos(calculator)
     
+}
+
+function plotDiscUniform(elementId) {
+    var elt = document.getElementById(elementId);
+    var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
+        showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});
+    calculator.setMathBounds({left: -5, right: 5, bottom: -0.5, top: 5});
+    calculator.setExpression({id: 'graph1', latex: 'f(x) = \\frac{1}{t - s + 1}'});
+    calculator.setExpression({latex: 's=0', sliderBounds: { min: -5, max: 5, step: 1}});
+    calculator.setExpression({latex: 't=1', sliderBounds: { min: 0, max: 10, step: 1}});
+   
+    discreteListCreator(calculator, "f", 0, 9999, 0, 50)
+    updateSettingsDesmos(calculator)
+    // to be fixed!!
 }
 
 // continuous distributions
@@ -210,7 +237,7 @@ function plotBeta(elementId) {
 
 }
 
-function plotUniform(elementId) {
+function plotContUniform(elementId) {
     var elt = document.getElementById(elementId);
     var calculator = Desmos.GraphingCalculator(elt, {keypad:false, settingsMenu:false, expressionsTopbar:false,expressionsCollapsed:true, 
         showGrid: false, yAxisStep: 0.1, zoomFit: true, showResetButtonOnGraphpaper:true, yAxisLabel:"Probability Density"});

@@ -76,11 +76,13 @@
 
 .homepage-content h2 {
     font-size: 1rem;
+    margin-bottom: 20px;
 }
 
 .homepage__btn {
     border: none;
-    margin: 20px;
+    margin: 0 20px;
+    margin-bottom: 10px;
     width: 240px;
     border-radius: 10px;
     background: #eeeeee;
@@ -143,10 +145,11 @@
     background-color: #bc89ff;
     border-radius: 10px;
     margin: 10px 10px;
+    transition: all 0.1s;
 }
 
 .dist-cards__card:hover {
-    box-shadow: 0px 0px 30px 1px #cbcbcb;
+    box-shadow: 0px 0px 15px 1px #cbcbcb;
     transform: scale(1.03);
 }
 
