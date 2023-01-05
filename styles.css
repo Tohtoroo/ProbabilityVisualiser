@@ -136,6 +136,11 @@
     margin: 30px auto;
 }
 
+.dist-link {
+    margin: 10px 10px;
+    text-decoration: none;
+}
+
 .dist-cards__card {
     display: grid;
     grid-template-rows: 190px 1fr;
@@ -144,7 +149,6 @@
     text-align: center;
     background-color: #bc89ff;
     border-radius: 10px;
-    margin: 10px 10px;
     transition: all 0.1s;
 }
 
@@ -165,13 +169,11 @@
     margin: auto;
     color: #000;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: all 0.3s;
 }
 
-.dist-card-name:hover {
-    color: #fff;
-}
+.dist-cards__card:hover > .dist-card-name { color: white; }
 
 /* single distribution */
 
