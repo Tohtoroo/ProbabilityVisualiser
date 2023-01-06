@@ -149,7 +149,7 @@
     text-align: center;
     background-color: #bc89ff;
     border-radius: 10px;
-    transition: all 0.1s;
+    transition: all 0.2s;
 }
 
 .dist-cards__card:hover {
@@ -170,10 +170,10 @@
     color: #000;
     text-decoration: none;
     font-size: 1rem;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
-.dist-cards__card:hover > .dist-card-name { color: white; }
+.dist-cards__card:hover > .dist-card-name { color: #fff; }
 
 /* single distribution */
 
