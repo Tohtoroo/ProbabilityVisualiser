@@ -7,7 +7,7 @@ const quizData = [
         b: "The study of numerical data",
         c: "The set of all possible outcomes of an experiment",
         d: "The outcome of an experiment",
-        correct: "a",
+        correct: "a"
     },
     {
         question: "Which of the following is not a discrete distribution?",
@@ -15,7 +15,7 @@ const quizData = [
         b: "Normal distribution",
         c: "Bernoulli distribution",
         d: "Geometric distribution",
-        correct: "b",
+        correct: "b"
     },
     {
         question: "Which of the following is not a continuous distribution?",
@@ -23,7 +23,7 @@ const quizData = [
         b: "Chi-Squared distribution",
         c: "Poisson distribution",
         d: "Exponential distribution",
-        correct: "c",
+        correct: "c"
     },
     {
         question: "Which distribution is the Bernoulli distribution a special case of?",
@@ -31,7 +31,7 @@ const quizData = [
         b: "Binomial distribution",
         c: "Exponential distribution",
         d: "Normal distribution",
-        correct: "b",
+        correct: "b"
     },
     {
         question: "Which distribution is the exponential distribution a special case of?",
@@ -39,7 +39,7 @@ const quizData = [
         b: "Continuous uniform distribution",
         c: "Beta distribution",
         d: "Gamma distribution",
-        correct: "d",
+        correct: "d"
     },
     {
         question: "What are the mean and standard deviation values of a standard normal distribution?",
@@ -47,23 +47,39 @@ const quizData = [
         b: "Mean = 1, standard deviation = 1",
         c: "Mean = 1, standard deviation = 0",
         d: "Mean = 0, standard deviation = 2",
-        correct: "a",
+        correct: "a"
     },
     {
         question: "Which distribution is most similar to the normal distribution?",
         a: "Exponential distribution",
-        b: "Poisson distribution",
+        b: "Bernoulli distribution",
         c: "Chi-Squared distribution",
         d: "Student's T-distribution",
-        correct: "d",
+        correct: "d"
     },
     {
-        question: "What does the hypergeometric distribution describe?",
-        a: "Placeholder",
-        b: "This one!",
-        c: "Placeholder",
-        d: "Placeholder",
-        correct: "b",
+        question: "Which distribution is the chi-squared distribution a special case of?",
+        a: "Log-normal distribution",
+        b: "Gamma distribution",
+        c: "Binomial distribution",
+        d: "Poisson distribution",
+        correct: "b"
+    },
+    {
+        question: "Which distribution gives the probability that the first occurrence of success requires k independent trials, each with success probability p?",
+        a: "Hypergeometric distribution",
+        b: "Negative binomial distribution",
+        c: "Geometric distribution",
+        d: "Binomial distribution",
+        correct: "c"
+    },
+    {
+        question: "What are the a and b values of a standard uniform distribution?",
+        a: "a = 0, b = 1",
+        b: "a = 0, b = 2",
+        c: "a = -1, b = 1",
+        d: "a = 1, b = 2",
+        correct: "a"
     }
 
 ];
@@ -106,7 +122,7 @@ function loadQuiz() {
         questionNumberInGrabBag.splice(index, 1); //gets rid of the number in the array so that it won't be repeated
     }
 
-    questionEl.innerText = currentQuizData.question;
+    questionEl.innerText = "Question " + (numberOfQuestionsDone + 1) + "/" + quizLength + ": \n" + currentQuizData.question;
     a_text.innerText = currentQuizData.a;
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
@@ -145,7 +161,7 @@ submitBtn.addEventListener("click", () => {
             loadQuiz();
         } else {
             quiz.innerHTML = 
-            `<h2 class = "question">You answered ${score}/${quizLength} questions correctly.</h2>
+            `<h2 class = "question">You answered ${score}/${quizLength} questions correctly!</h2>
             <button class = "quiz_btn" onclick="location.reload()">Reload</button>`;
         }
     }
