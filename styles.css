@@ -123,9 +123,11 @@
 /* distributions overview */
 .main-introduction {
     padding: 40px 10px;
-    margin-bottom: 60px;
+    margin: 60px 75px;
     text-align: left;
-    background: #e8d6ff
+    background: #e8d6ff;
+    border-radius: 50px;
+    
 }
 
 .dist-type {
