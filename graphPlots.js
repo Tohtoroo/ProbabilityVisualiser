@@ -213,7 +213,6 @@ function plotGamma(gammaFunctionElementId, elementId) {
     calculator.setExpression({latex: '\\alpha = 1', sliderBounds: { min: 0, max: 10}});
     calculator.setExpression({latex: '\\lambda  = 1', sliderBounds: { min: 0, max: 10}});
     
-
     calculator.setExpression({id: 'exponential_1', latex: 'g(x)=\\left\\{x<0:0, e^{-x}\\right\\}', color: Desmos.Colors.RED});
    
     plotIntegralArea(calculator, 0, 10, '', 1, 2)
@@ -235,7 +234,6 @@ function plotBeta(elementId) {
 
     plotIntegralArea(calculator, 0, 1, '', 0.2, 0.4)
     updateSettingsDesmos(calculator)
-
 }
 
 function plotContUniform(elementId) {
@@ -247,8 +245,7 @@ function plotContUniform(elementId) {
     calculator.setExpression({latex: 'a=0', sliderBounds: { min: -5, max: 5}});
     calculator.setExpression({latex: 'b=1', sliderBounds: { min: 0, max: 10}});
    
-    updateSettingsDesmos(calculator)
-    
+    updateSettingsDesmos(calculator)   
 }
 
 function plotLogNormal(elementId) {
@@ -261,8 +258,7 @@ function plotLogNormal(elementId) {
     calculator.setExpression({latex: '\\sigma=1', sliderBounds: { min: 0, max: 10}});
    
     plotIntegralArea(calculator, 0, 10, '', 1, 2)
-    updateSettingsDesmos(calculator)
-    
+    updateSettingsDesmos(calculator)   
 }
 
 function plotT(elementId) {
@@ -272,9 +268,7 @@ function plotT(elementId) {
     calculator.setMathBounds({left: -5, right: 5, bottom: -0.5, top: 1});
     calculator.setExpression({id: 'graph1', latex: '\\operatorname{tdist}\\left(\\nu\\right)'});
     calculator.setExpression({latex: '\\nu=1', sliderBounds: { min: 0, max: 50, step: 1}});
-   
     updateSettingsDesmos(calculator)
-    
 }
 
 function plotChiChi(elementId) {
@@ -288,7 +282,6 @@ function plotChiChi(elementId) {
     calculator.setExpression({id: 'graph1', latex: 'f(x)=\\left\\{x<0:0, \\frac{x^{\\frac{k}{2} -1} e^{\\frac{-x}{2}}}{2^{\\frac{k}{2}}  \\Gamma(\\frac{k}{2}) }   \\right\\}',  color:Desmos.Colors.BLUE});
     plotIntegralArea(calculator, 0, 100, '', 1, 2)
     updateSettingsDesmos(calculator)
-
 }
 
 
