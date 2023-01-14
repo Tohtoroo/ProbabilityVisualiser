@@ -121,6 +121,12 @@
 }
 
 /* distributions overview */
+.main-introduction {
+    padding: 40px 10px;
+    margin-bottom: 60px;
+    text-align: left;
+    background: #e8d6ff
+}
 
 .dist-type {
     text-align: center;
