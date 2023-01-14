@@ -26,7 +26,33 @@
     <div class="margin-top-centralise">
         <h1 class="dist-name">Negative Binomial Distribution</h1>
         <div class="dist-description">
-            <p>Description here</p>
+            <p>
+                A Negative Binomial distribution is a discrete distribution 
+                that is very similar to the <a href="dist-binomial.html" class="inline-link">Binomial distribution</a>. However, the Negative Binomial distribution 
+                instead counts the number of Failures (denoted X) before you reach a specified number of Successes (denoted R).
+                It is a generalization of the <a href="dist-geom.html" class="inline-link">Geometric distribution</a> 
+                where you can look at multiple number of Successes instead of just one, i.e R = 1.
+            </p>
+
+            <p> 
+                Similarly, a Binomial distribution must meet the following criteria:
+                <ul>
+                    <li>There are only two possible outcomes, Success or Failure.</li>
+                    <li>The probability of Success, p, is the same for each trial.</li>
+                    <li>The trials are independent of each other.</li>
+                    <li>The number of trials, n, is <b>not fixed</b>.</li>
+                    <li> A random variable X = the number of trials needed to make R Successes.</li>
+            </p>
+
+            <p>
+                For example, suppose we have a biased coin, which when flipped will have a probability p of landing heads and a probability 1-p of landing tails. Suppose we set that 
+                heads is the Success, and tails is the Failure. If we were to flip this coin until we get 3 heads, then the random variable X would be the number of flips needed to get 3 heads, 
+                i.e the number of Failures before getting 3 Successes. Therefore, the distribution is showing what is the different probabilities for number of Failures needed before getting 3 Successes.
+            </p>
+
+            <p>
+                The graph below graphs the PMF of the Negative Binomial Distribution. Click on the double arrow on the top left corner of the graph to access the p slider to vary the probability of a successful trial as well as the number of Successes needed, R.
+            </p>
         </div>
         <div class="graph" id="main-graph"></div>
     </div>

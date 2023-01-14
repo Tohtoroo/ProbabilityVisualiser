@@ -195,6 +195,12 @@
     margin-bottom: 20px;
 }
 
+.dist-description ul {
+    padding: 0;
+    margin: 0;
+    list-style-position: inside;
+}
+
 .graph {
     width: 80%;
     margin: auto;

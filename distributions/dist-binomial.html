@@ -26,14 +26,30 @@
     <div class="margin-top-centralise">
         <h1 class="dist-name">Binomial Distribution</h1>
         <div class="dist-description">
-            <p>The Binomial distribution is a general case of the <a href="dist-bernoulli.html" class="inline-link">Bernoulli distribution</a> where n trials are conducted. 
-                Suppose we have a coin which, when flipped, will land on its head with probability p and and tail with probability 1 - p. We flip this coin n times.
+            <p>
+                The Binomial distribution is a discrete distribution which can be thought of as the probability of a Success or Failure outcome in an experiment that is conducted numerous times.
+                It is the general case of the <a href="dist-bernoulli.html" class="inline-link">Bernoulli distribution</a> where n trials are conducted. 
+            </p>
+            
+            <p> 
+                A Binomial distribution must meet the following criteria:
+                <ul>
+                    <li>There are only two possible outcomes, Success or Failure.</li>
+                    <li>The probability of Success, p, is the same for each trial.</li>
+                    <li>The trials are independent of each other.</li>
+                    <li>The number of trials, n, is fixed.</li>
+                    <li>A random variable X = the number of Successes</li> 
+            </p>
+            <p>
+                Suppose we have coin which, when flipped, will land on its head with probability p and and tail with probability 1 - p. We flip this coin n times.
                 In the Binomial, we keep track of n possible outcomes. The coin could land on its head 0 times, or 1 time, and so on, up till n times. Therefore, the support of the probability
                 mass function is the set of integers from 0 to n, i.e. supp(f) = {0, 1, 2, ..., n}.
+            </p>
 
-
-                The graph below graphs the PMF of the Binomial Distribution. Adjust the slider p to vary the probability of a successful trial. Check "CDF" and adjust the bounds to obtain probabilities for finding the random variable in the specified range.
-                </p>
+            <p>
+                The graph below graphs the PMF of the Binomial Distribution.  Click on the double arrow on the top left corner of the graph to access the p slider to vary the probability of a successful trial as well as the number of trials done.
+                Check "CDF" and adjust the bounds to obtain probabilities for finding the random variable in the specified range.
+            </p>
         </div>
         <div class="graph" id="main-graph"></div>
     </div>
