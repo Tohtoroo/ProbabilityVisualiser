@@ -24,6 +24,7 @@
 .inline-link {
     text-decoration: none;
     color: #bc89ff;
+    transition: all 0.3s;
 }
 
 .inline-link:hover {
@@ -121,13 +122,15 @@
 }
 
 /* distributions overview */
-.main-introduction {
-    padding: 40px 10px;
-    margin: 60px 75px;
-    text-align: left;
-    background: #e8d6ff;
-    border-radius: 50px;
-    
+
+.distributions-introduction {
+    text-align: justify;
+    width: 75%;
+    margin: 30px auto;
+}
+
+.distributions-introduction p {
+    margin-bottom: 20px;
 }
 
 .dist-type {
@@ -187,7 +190,7 @@
 
 .dist-description {
     text-align: justify;
-    width: 80%;
+    width: 75%;
     margin: 30px auto;
 }
 
@@ -202,7 +205,7 @@
 }
 
 .graph {
-    width: 80%;
+    width: 75%;
     margin: auto;
     height: 500px;
     margin-bottom: 60px;
